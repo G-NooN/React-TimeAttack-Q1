@@ -1,3 +1,19 @@
+const PLUS_N = "calculator/PLUS_N";
+const MINUS_N = "calculator/MINUS_N";
+
+export const plusN = (payload) => {
+  return {
+    type: PLUS_N,
+    payload,
+  };
+};
+export const minusN = (payload) => {
+  return {
+    type: MINUS_N,
+    payload,
+  };
+};
+
 // 초기 상태값
 const initialState = {
   number: 0,
@@ -6,6 +22,14 @@ const initialState = {
 // 리듀서
 const calculator = (state = initialState, action) => {
   switch (action.type) {
+    case PLUS_N:
+      return {
+        number: state.number + action.payload,
+      };
+    case MINUS_N:
+      return {
+        number: state.number - action.payload,
+      };
     default:
       return state;
   }
